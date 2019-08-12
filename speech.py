@@ -1,29 +1,15 @@
-# import speech_recognition as sr
-# while(True):
-#     r = sr.Recognizer()
-#     with sr.Microphone() as source:
-#         print("Speak anything:")
-#         voice = r.listen(source)
-#         try:
-#             text = r.recognize_google(voice)
-#             print("You said : {}".format(text))
-#             break
-#         except:
-#             print("Sorry could not recognize what you said. Try again")
-
-
 import speech_recognition as sr  
 from gtts import gTTS
 import playsound
 import os
 
-num = 1
+count = 1
 def assistant_speaks(output): 
-    global num 
-    num += 1
+    global count 
+    count += 1
     print("Assistant : ", output) 
     toSpeak = gTTS(text = output, lang ='en', slow = False) 
-    file = str(num)+".mp3"  
+    file = str(count)+".mp3"  
     toSpeak.save(file) 
     playsound.playsound(file, True)  
     os.remove(file) 
